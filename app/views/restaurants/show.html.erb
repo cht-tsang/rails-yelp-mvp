@@ -9,3 +9,11 @@
 <p><%= @restaurant.phone_number %></p>
 
 <p><%= link_to 'Back', restaurants_path %></p>
+<br>
+<p><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %></p>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %> - <%= review.rating %><%= link_to "(delete)", review_path(review), method: :delete %></li>
+  <% end %>
+</ul>
